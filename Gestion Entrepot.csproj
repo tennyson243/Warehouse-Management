@@ -1,0 +1,1361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0F7A528-86C3-4591-80C0-6AFEA5FC69ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Gestion_Entrepot</RootNamespace>
+    <AssemblyName>Gestion Entrepot</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForm.BunifuShadowPanel">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForm.BunifuShadowPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuFormDock">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGauge">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToolTip">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTransition">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuUserControl">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.ToggleSwitch">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.ToggleSwitch.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>F:\GLR\VS\paquet\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Chinchilla.Logging, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chinchilla.Logging.4.5.29\lib\net40\Chinchilla.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Chinchilla.StateManagement, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chinchilla.StateManagement.4.2.5\lib\net40\Chinchilla.StateManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Cqrs, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cqrs.4.4.1.24\lib\net40\Cqrs.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="GumroadLicensing, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GumroadLicensing.2.0.2\lib\net45\GumroadLicensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>F:\GLR\VS\paquet\Guna UI Framework Ultimate 2.0.0.1\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>F:\GLR\VS\paquet\Guna UI Framework Ultimate 2.0.0.1\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Kimtoo.Preloader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kimtoo.Preloader.1.0.5\lib\net40\Kimtoo.Preloader.dll</HintPath>
+    </Reference>
+    <Reference Include="Kimtoo.Reports, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kimtoo.Reports.1.0.0\lib\net45\Kimtoo.Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="Kimtoo.ThemeFactory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kimtoo.ThemeProvider.1.0.1\lib\net40\Kimtoo.ThemeFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NavigationMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kimtoo.NavigationMenu.1.0.2\lib\net40\NavigationMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.1.9.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.1.9\lib\net461\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenHtmlToPdf, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenHtmlToPdf.1.12.0.0\lib\net45\OpenHtmlToPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.13.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.6.0.2\lib\net472\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.6.0.2\lib\net472\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.6.0.2\lib\net472\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.MySql, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.MySql.6.0.2\lib\net472\ServiceStack.OrmLite.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.Oracle, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.Oracle.6.0.2\lib\net472\ServiceStack.OrmLite.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.PostgreSQL, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.PostgreSQL.6.0.2\lib\net472\ServiceStack.OrmLite.PostgreSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.6.0.2\lib\net472\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.6.0.2\lib\net472\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>packages\SixLabors.ImageSharp.2.0.0\lib\net472\SixLabors.ImageSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.8\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acteurs\Acteurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acteurs\Acteurs.Designer.cs">
+      <DependentUpon>Acteurs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acteurs\DeclarantGerer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acteurs\DeclarantGerer.Designer.cs">
+      <DependentUpon>DeclarantGerer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acteurs\DetailsImportateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acteurs\DetailsImportateur.Designer.cs">
+      <DependentUpon>DetailsImportateur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acteurs\GererImportateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acteurs\GererImportateur.Designer.cs">
+      <DependentUpon>GererImportateur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BDD\Connecteur.cs" />
+    <Compile Include="BDD\DbConnection.cs" />
+    <Compile Include="Chart\Dashboard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Check.cs" />
+    <Compile Include="Classes\Circulation.cs" />
+    <Compile Include="Classes\Controle.cs" />
+    <Compile Include="Classes\Declarant.cs" />
+    <Compile Include="Classes\Utilisateur.cs" />
+    <Compile Include="DataSetStatistique.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetStatistique.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DGVPrinter.cs" />
+    <Compile Include="Classes\Importateur.cs" />
+    <Compile Include="Classes\Magasinage.cs" />
+    <Compile Include="Classes\Rapport.cs" />
+    <Compile Include="Classes\Retrait.cs" />
+    <Compile Include="Classes\Securites.cs" />
+    <Compile Include="Classes\Colis.cs" />
+    <Compile Include="Colis\ListColis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Colis\ListColis.Designer.cs">
+      <DependentUpon>ListColis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colis\Marchandise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Colis\Marchandise.Designer.cs">
+      <DependentUpon>Marchandise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EffetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EffetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEntrepotModelPlus.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionEntrepotModelPlus.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEntrepotModelPlus.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionEntrepotModelPlus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEntrepotModelPlus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionEntrepotModelPlus.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="InfoDashboard\InfoDeclarant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoDashboard\InfoDeclarant.Designer.cs">
+      <DependentUpon>InfoDeclarant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoDashboard\InfoEntree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoDashboard\InfoEntree.Designer.cs">
+      <DependentUpon>InfoEntree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoDashboard\InfoImportateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoDashboard\InfoImportateur.Designer.cs">
+      <DependentUpon>InfoImportateur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoDashboard\InfoRetrait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoDashboard\InfoRetrait.Designer.cs">
+      <DependentUpon>InfoRetrait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListColis.cs">
+      <DependentUpon>MDLFINAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Controle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Controle.Designer.cs">
+      <DependentUpon>Controle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Login_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Login_Form.Designer.cs">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDLFINAL.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MDLFINAL.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MDLFINAL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MDLFINAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MDLFINAL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MDLFINAL.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelStatistique.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelStatistique.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelStatistique.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelStatistique.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelStatistique.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelStatistique.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PanneauPrincipal\PanelDashebord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanneauPrincipal\PanelDashebord.Designer.cs">
+      <DependentUpon>PanelDashebord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanneauPrincipal\PanneauPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanneauPrincipal\PanneauPrincipal.Designer.cs">
+      <DependentUpon>PanneauPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanneauPrincipal\UserControlInitialiser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanneauPrincipal\UserControlInitialiser.Designer.cs">
+      <DependentUpon>UserControlInitialiser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonelleDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Print\EffetPersonnelle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EffetPersonnelle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Print\EffetRevision.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EffetRevision.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Print\EtatDuStock.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EtatDuStock.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Print\Personnelle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Personnelle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Print\PrintEffetPersonnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\PrintEffetPersonnel.Designer.cs">
+      <DependentUpon>PrintEffetPersonnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrintEtatduStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\PrintEtatduStock.Designer.cs">
+      <DependentUpon>PrintEtatduStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrintFicheMagasin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\PrintFicheMagasin.Designer.cs">
+      <DependentUpon>PrintFicheMagasin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrintSuiviStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\PrintSuiviStock.Designer.cs">
+      <DependentUpon>PrintSuiviStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PsEffet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\PsEffet.Designer.cs">
+      <DependentUpon>PsEffet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\SuivisStock.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuivisStock.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rapport\EffetPersonnelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\EffetPersonnelle.Designer.cs">
+      <DependentUpon>EffetPersonnelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport\EtatStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\EtatStock.Designer.cs">
+      <DependentUpon>EtatStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport\FicheJournalierMagasin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\FicheJournalierMagasin.Designer.cs">
+      <DependentUpon>FicheJournalierMagasin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport\FicheMagasin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\FicheMagasin.Designer.cs">
+      <DependentUpon>FicheMagasin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport\Mouvement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\Mouvement.Designer.cs">
+      <DependentUpon>Mouvement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport\RetraitRapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\RetraitRapport.Designer.cs">
+      <DependentUpon>RetraitRapport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport\Statistique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\Statistique.Designer.cs">
+      <DependentUpon>Statistique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport\Stock_Magasin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\Stock_Magasin.Designer.cs">
+      <DependentUpon>Stock_Magasin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Retrait\GererRetrait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retrait\GererRetrait.Designer.cs">
+      <DependentUpon>GererRetrait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Retrait\ListRetrait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retrait\ListRetrait.Designer.cs">
+      <DependentUpon>ListRetrait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Retrait\UserControlItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Retrait\UserControlItems.Designer.cs">
+      <DependentUpon>UserControlItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Retrait\UserControlStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Retrait\UserControlStock.Designer.cs">
+      <DependentUpon>UserControlStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Securite\AddSecurite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Securite\AddSecurite.Designer.cs">
+      <DependentUpon>AddSecurite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Securite\Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Securite\Check.Designer.cs">
+      <DependentUpon>Check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statistiqueproc_Result.cs">
+      <DependentUpon>GestionEntrepotModelPlus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatistiquetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatistiquetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StatitistiqueCool.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatitistiqueCool.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatitistiqueCool.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatitistiqueCool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatitistiqueCool.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatitistiqueCool.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TableDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TableDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Utilisateur\GererUtilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilisateur\GererUtilisateur.Designer.cs">
+      <DependentUpon>GererUtilisateur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View_Colis.cs">
+      <DependentUpon>MDLFINAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Effet.cs">
+      <DependentUpon>MDLFINAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_FicheMagasin.cs">
+      <DependentUpon>MDLFINAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Mouvement.cs">
+      <DependentUpon>MDLFINAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Retrait.cs">
+      <DependentUpon>MDLFINAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Stock_Restant.cs">
+      <DependentUpon>MDLFINAL.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Acteurs\Acteurs.resx">
+      <DependentUpon>Acteurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acteurs\DeclarantGerer.resx">
+      <DependentUpon>DeclarantGerer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acteurs\DetailsImportateur.resx">
+      <DependentUpon>DetailsImportateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acteurs\GererImportateur.resx">
+      <DependentUpon>GererImportateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Colis\ListColis.resx">
+      <DependentUpon>ListColis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Colis\Marchandise.resx">
+      <DependentUpon>Marchandise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoDashboard\InfoDeclarant.resx">
+      <DependentUpon>InfoDeclarant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoDashboard\InfoEntree.resx">
+      <DependentUpon>InfoEntree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoDashboard\InfoImportateur.resx">
+      <DependentUpon>InfoImportateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoDashboard\InfoRetrait.resx">
+      <DependentUpon>InfoRetrait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Controle.resx">
+      <DependentUpon>Controle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Login_Form.resx">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanneauPrincipal\PanelDashebord.resx">
+      <DependentUpon>PanelDashebord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanneauPrincipal\PanneauPrincipal.resx">
+      <DependentUpon>PanneauPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanneauPrincipal\UserControlInitialiser.resx">
+      <DependentUpon>UserControlInitialiser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\EffetPersonnelle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EffetPersonnelle.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\EffetRevision.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EffetRevision.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\EtatDuStock.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EtatDuStock.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Personnelle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Personnelle.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\PrintEffetPersonnel.resx">
+      <DependentUpon>PrintEffetPersonnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\PrintEtatduStock.resx">
+      <DependentUpon>PrintEtatduStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\PrintFicheMagasin.resx">
+      <DependentUpon>PrintFicheMagasin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\PrintSuiviStock.resx">
+      <DependentUpon>PrintSuiviStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\PsEffet.resx">
+      <DependentUpon>PsEffet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\SuivisStock.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SuivisStock.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Rapport\EffetPersonnelle.resx">
+      <DependentUpon>EffetPersonnelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\EtatStock.resx">
+      <DependentUpon>EtatStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\FicheJournalierMagasin.resx">
+      <DependentUpon>FicheJournalierMagasin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\FicheMagasin.resx">
+      <DependentUpon>FicheMagasin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\Mouvement.resx">
+      <DependentUpon>Mouvement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\RetraitRapport.resx">
+      <DependentUpon>RetraitRapport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\Statistique.resx">
+      <DependentUpon>Statistique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\Stock_Magasin.resx">
+      <DependentUpon>Stock_Magasin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Retrait\GererRetrait.resx">
+      <DependentUpon>GererRetrait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Retrait\ListRetrait.resx">
+      <DependentUpon>ListRetrait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Retrait\UserControlItems.resx">
+      <DependentUpon>UserControlItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Retrait\UserControlStock.resx">
+      <DependentUpon>UserControlStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Securite\AddSecurite.resx">
+      <DependentUpon>AddSecurite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Securite\Check.resx">
+      <DependentUpon>Check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilisateur\GererUtilisateur.resx">
+      <DependentUpon>GererUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSetStatistique.xsc">
+      <DependentUpon>DataSetStatistique.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetStatistique.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetStatistique.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetStatistique.xss">
+      <DependentUpon>DataSetStatistique.xsd</DependentUpon>
+    </None>
+    <None Include="EffetDataSet.xsc">
+      <DependentUpon>EffetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EffetDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EffetDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EffetDataSet.xss">
+      <DependentUpon>EffetDataSet.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="ModelStatistique.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelStatistique.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="GestionEntrepotModelPlus.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GestionEntrepotModelPlus.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GestionEntrepotModelPlus.edmx.diagram">
+      <DependentUpon>GestionEntrepotModelPlus.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="MDLFINAL.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MDLFINAL.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MDLFINAL.edmx.diagram">
+      <DependentUpon>MDLFINAL.edmx</DependentUpon>
+    </None>
+    <None Include="ModelStatistique.edmx.diagram">
+      <DependentUpon>ModelStatistique.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PersonelleDataSet.xsc">
+      <DependentUpon>PersonelleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PersonelleDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PersonelleDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PersonelleDataSet.xss">
+      <DependentUpon>PersonelleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\Securite2.datasource" />
+    <None Include="Properties\DataSources\Stock_Restant.datasource" />
+    <None Include="Properties\DataSources\vue_Effet.datasource" />
+    <None Include="Properties\DataSources\Vue_FicheMagasin.datasource" />
+    <None Include="Properties\DataSources\Vue_Mouvement.datasource" />
+    <None Include="Properties\DataSources\Vue_Retrait.datasource" />
+    <None Include="Properties\DataSources\Vue_Securite.datasource" />
+    <None Include="Properties\DataSources\vue_Statistique.datasource" />
+    <None Include="Properties\DataSources\Vue_Stock_Restant.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="StatitistiqueCool.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StatitistiqueCool.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="StatistiquetDataSet.xsc">
+      <DependentUpon>StatistiquetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StatistiquetDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StatistiquetDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StatistiquetDataSet.xss">
+      <DependentUpon>StatistiquetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StatitistiqueCool.edmx.diagram">
+      <DependentUpon>StatitistiqueCool.edmx</DependentUpon>
+    </None>
+    <None Include="TableDataSet.xsc">
+      <DependentUpon>TableDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TableDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TableDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TableDataSet.xss">
+      <DependentUpon>TableDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ViewDataSet.xsc">
+      <DependentUpon>ViewDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ViewDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ViewDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ViewDataSet.xss">
+      <DependentUpon>ViewDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\categorize_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\project_management_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary_female_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cash_in_hand_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\service_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy_b24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rent_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manufacturing_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_b26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\supplier blanc_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shutdown_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agent_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\auteur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lions-577104.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sea-164989.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\river-219972.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sea-1649891.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lions-5771041.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuns-2304009_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\river-2199721.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\protect_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_file_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graph_report_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\in_app_messaging_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adobe_acrobat_reader_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy_2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fingerprint-2904774_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy_5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy_4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy_6.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck-306852_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_theft_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\birth_date_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintenance_date_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_top_view_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_property_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_24px.png DW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user_group_woman_man_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import_80px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_48px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change_theme_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\african-american-3177784_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\african-american-3177784_19201.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\african-american-3177784_19202.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man-3022704_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man-3022704_19201.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_bag_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_64px.pngff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_file_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\summary_list_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_file_30px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_text_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_text_24px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_account_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_tabs_list_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cookies-2372836_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orange-1921548_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cookies-2372836_19201.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candy-2201929_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_26px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\available_updates_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_26px.vertpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update_user_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cosmetic-oil-3868594_1920.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ask_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_24px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_30px.png aa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_file_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_30px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_file_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_30px2.png" />
+    <None Include="Resources\search_24px2.png" />
+    <None Include="Resources\search_26px.png" />
+    <None Include="Resources\secure_48px.png" />
+    <None Include="Resources\pdf_48px.png" />
+    <None Include="Resources\printer_48px.pngss.png" />
+    <None Include="Resources\microsoft_excel_2019_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\microsoft_excel_2019_48px1.png" />
+    <None Include="Resources\moon_symbol_30px.png1.png" />
+    <None Include="Resources\moon_symbol_30px.png" />
+    <None Include="Resources\sun_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Acteurs\Non.png" />
+    <Content Include="Acteurs\ok.png" />
+    <Content Include="Acteurs\Spiner.png" />
+    <Content Include="GestionEntrepotModelPlus.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GestionEntrepotModelPlus.edmx</DependentUpon>
+      <LastGenOutput>GestionEntrepotModelPlus.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GestionEntrepotModelPlus.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GestionEntrepotModelPlus.edmx</DependentUpon>
+      <LastGenOutput>GestionEntrepotModelPlus.cs</LastGenOutput>
+    </Content>
+    <Content Include="MDLFINAL.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MDLFINAL.edmx</DependentUpon>
+      <LastGenOutput>MDLFINAL.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MDLFINAL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MDLFINAL.edmx</DependentUpon>
+      <LastGenOutput>MDLFINAL.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelStatistique.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelStatistique.edmx</DependentUpon>
+      <LastGenOutput>ModelStatistique.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelStatistique.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelStatistique.edmx</DependentUpon>
+      <LastGenOutput>ModelStatistique.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\male_user_26px.png" />
+    <None Include="Resources\encrypt_32px.png" />
+    <None Include="Resources\unlock_private_50px.png" />
+    <None Include="Resources\name_tag_50px.png" />
+    <None Include="Resources\name_tag_24px.png" />
+    <None Include="Resources\login_24px.png" />
+    <None Include="Resources\download_graph_report_50px.png" />
+    <None Include="Resources\user_shield_24px.png" />
+    <None Include="Resources\security_guard_24px.png" />
+    <None Include="Resources\checkout_24px.png" />
+    <None Include="Resources\truck_length_50px.png" />
+    <None Include="Resources\home_30px1.png" />
+    <None Include="Resources\digital-art-3563931.jpg" />
+    <None Include="Resources\digital-art-35639311.jpg" />
+    <None Include="Resources\secure_48px1.png" />
+    <None Include="Resources\Asset.jpg" />
+    <None Include="Resources\mountains-3845777_1920.jpg" />
+    <None Include="Resources\Asse.jpg" />
+    <None Include="Resources\Asse1.jpg" />
+    <None Include="Resources\Asset2.jpg" />
+    <None Include="Resources\Asset21.jpg" />
+    <None Include="Resources\purchase_order_24px.png" />
+    <None Include="Resources\graph_report_64px1.png" />
+    <None Include="Resources\withdrawal_limit_32px.png" />
+    <Content Include="StatitistiqueCool.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StatitistiqueCool.edmx</DependentUpon>
+      <LastGenOutput>StatitistiqueCool.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="StatitistiqueCool.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StatitistiqueCool.edmx</DependentUpon>
+      <LastGenOutput>StatitistiqueCool.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+</Project>

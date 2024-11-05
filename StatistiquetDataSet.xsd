@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StatistiquetDataSet" targetNamespace="http://tempuri.org/StatistiquetDataSet.xsd" xmlns:mstns="http://tempuri.org/StatistiquetDataSet.xsd" xmlns="http://tempuri.org/StatistiquetDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="StatistiqueString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="StatistiqueString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Gestion_Entrepot.Properties.Settings.GlobalReference.Default.StatistiqueString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_StatistiqueTableAdapter" GeneratorDataComponentClassName="View_StatistiqueTableAdapter" Name="View_Statistique" UserDataComponentName="View_StatistiqueTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="StatistiqueString (Settings)" DbObjectName="dbo.View_Statistique" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Date, Entree, Sortie FROM dbo.View_Statistique</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Entree" DataSetColumn="Entree" />
+              <Mapping SourceColumn="Sortie" DataSetColumn="Sortie" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StatistiquetDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="StatistiquetDataSet" msprop:Generator_UserDSName="StatistiquetDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_Statistique" msprop:Generator_TableClassName="View_StatistiqueDataTable" msprop:Generator_TableVarName="tableView_Statistique" msprop:Generator_TablePropName="View_Statistique" msprop:Generator_RowDeletingName="View_StatistiqueRowDeleting" msprop:Generator_RowChangingName="View_StatistiqueRowChanging" msprop:Generator_RowEvHandlerName="View_StatistiqueRowChangeEventHandler" msprop:Generator_RowDeletedName="View_StatistiqueRowDeleted" msprop:Generator_UserTableName="View_Statistique" msprop:Generator_RowChangedName="View_StatistiqueRowChanged" msprop:Generator_RowEvArgName="View_StatistiqueRowChangeEvent" msprop:Generator_RowClassName="View_StatistiqueRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Entree" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEntree" msprop:Generator_ColumnPropNameInRow="Entree" msprop:Generator_ColumnPropNameInTable="EntreeColumn" msprop:Generator_UserColumnName="Entree" type="xs:int" minOccurs="0" />
+              <xs:element name="Sortie" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSortie" msprop:Generator_ColumnPropNameInRow="Sortie" msprop:Generator_ColumnPropNameInTable="SortieColumn" msprop:Generator_UserColumnName="Sortie" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

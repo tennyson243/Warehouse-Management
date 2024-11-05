@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PersonelleDataSet" targetNamespace="http://tempuri.org/PersonelleDataSet.xsd" xmlns:mstns="http://tempuri.org/PersonelleDataSet.xsd" xmlns="http://tempuri.org/PersonelleDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="StatistiqueString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="StatistiqueString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Gestion_Entrepot.Properties.Settings.GlobalReference.Default.StatistiqueString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Effet_PersonelTableAdapter" GeneratorDataComponentClassName="View_Effet_PersonelTableAdapter" Name="View_Effet_Personel" UserDataComponentName="View_Effet_PersonelTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="StatistiqueString (Settings)" DbObjectName="dbo.View_Effet_Personel" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, Designation, Colis, Plaque, Nature, Quantite, Declarant, Plaque_Sortie, Nom_Chauffeur, Num_Chauffeur, Date, QRCODE FROM dbo.View_Effet_Personel</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Designation" DataSetColumn="Designation" />
+              <Mapping SourceColumn="Colis" DataSetColumn="Colis" />
+              <Mapping SourceColumn="Plaque" DataSetColumn="Plaque" />
+              <Mapping SourceColumn="Nature" DataSetColumn="Nature" />
+              <Mapping SourceColumn="Quantite" DataSetColumn="Quantite" />
+              <Mapping SourceColumn="Declarant" DataSetColumn="Declarant" />
+              <Mapping SourceColumn="Plaque_Sortie" DataSetColumn="Plaque_Sortie" />
+              <Mapping SourceColumn="Nom_Chauffeur" DataSetColumn="Nom_Chauffeur" />
+              <Mapping SourceColumn="Num_Chauffeur" DataSetColumn="Num_Chauffeur" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="QRCODE" DataSetColumn="QRCODE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PersonelleDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PersonelleDataSet" msprop:Generator_UserDSName="PersonelleDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_Effet_Personel" msprop:Generator_TableClassName="View_Effet_PersonelDataTable" msprop:Generator_TableVarName="tableView_Effet_Personel" msprop:Generator_TablePropName="View_Effet_Personel" msprop:Generator_RowDeletingName="View_Effet_PersonelRowDeleting" msprop:Generator_RowChangingName="View_Effet_PersonelRowChanging" msprop:Generator_RowEvHandlerName="View_Effet_PersonelRowChangeEventHandler" msprop:Generator_RowDeletedName="View_Effet_PersonelRowDeleted" msprop:Generator_UserTableName="View_Effet_Personel" msprop:Generator_RowChangedName="View_Effet_PersonelRowChanged" msprop:Generator_RowEvArgName="View_Effet_PersonelRowChangeEvent" msprop:Generator_RowClassName="View_Effet_PersonelRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Designation" msprop:Generator_ColumnVarNameInTable="columnDesignation" msprop:Generator_ColumnPropNameInRow="Designation" msprop:Generator_ColumnPropNameInTable="DesignationColumn" msprop:Generator_UserColumnName="Designation">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Colis" msprop:Generator_ColumnVarNameInTable="columnColis" msprop:Generator_ColumnPropNameInRow="Colis" msprop:Generator_ColumnPropNameInTable="ColisColumn" msprop:Generator_UserColumnName="Colis">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Plaque" msprop:Generator_ColumnVarNameInTable="columnPlaque" msprop:Generator_ColumnPropNameInRow="Plaque" msprop:Generator_ColumnPropNameInTable="PlaqueColumn" msprop:Generator_UserColumnName="Plaque">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nature" msprop:Generator_ColumnVarNameInTable="columnNature" msprop:Generator_ColumnPropNameInRow="Nature" msprop:Generator_ColumnPropNameInTable="NatureColumn" msprop:Generator_UserColumnName="Nature">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quantite" msprop:Generator_ColumnVarNameInTable="columnQuantite" msprop:Generator_ColumnPropNameInRow="Quantite" msprop:Generator_ColumnPropNameInTable="QuantiteColumn" msprop:Generator_UserColumnName="Quantite" type="xs:int" />
+              <xs:element name="Declarant" msprop:Generator_ColumnVarNameInTable="columnDeclarant" msprop:Generator_ColumnPropNameInRow="Declarant" msprop:Generator_ColumnPropNameInTable="DeclarantColumn" msprop:Generator_UserColumnName="Declarant">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Plaque_Sortie" msprop:Generator_ColumnVarNameInTable="columnPlaque_Sortie" msprop:Generator_ColumnPropNameInRow="Plaque_Sortie" msprop:Generator_ColumnPropNameInTable="Plaque_SortieColumn" msprop:Generator_UserColumnName="Plaque_Sortie">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nom_Chauffeur" msprop:Generator_ColumnVarNameInTable="columnNom_Chauffeur" msprop:Generator_ColumnPropNameInRow="Nom_Chauffeur" msprop:Generator_ColumnPropNameInTable="Nom_ChauffeurColumn" msprop:Generator_UserColumnName="Nom_Chauffeur">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Num_Chauffeur" msprop:Generator_ColumnVarNameInTable="columnNum_Chauffeur" msprop:Generator_ColumnPropNameInRow="Num_Chauffeur" msprop:Generator_ColumnPropNameInTable="Num_ChauffeurColumn" msprop:Generator_UserColumnName="Num_Chauffeur">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QRCODE" msprop:Generator_ColumnVarNameInTable="columnQRCODE" msprop:Generator_ColumnPropNameInRow="QRCODE" msprop:Generator_ColumnPropNameInTable="QRCODEColumn" msprop:Generator_UserColumnName="QRCODE" type="xs:base64Binary" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_Effet_Personel" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

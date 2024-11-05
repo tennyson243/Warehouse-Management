@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MDL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.ListColis' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ListColis">
+          <Key>
+            <PropertyRef Name="id_Colis" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Importateur" />
+            <PropertyRef Name="Manifeste" />
+            <PropertyRef Name="Declarant" />
+            <PropertyRef Name="Plomb" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Nature" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="id_Colis" Type="int" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaque" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Importateur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manifeste" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Declarant" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plomb" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="Nature" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.Statistique' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Statistique">
+          <Property Name="Date_Entree" Type="varchar" MaxLength="25" />
+          <Property Name="Entree" Type="int" />
+          <Property Name="Sortie" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.View_Colis' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Colis">
+          <Key>
+            <PropertyRef Name="id_Colis" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Importateur" />
+            <PropertyRef Name="Manifeste" />
+            <PropertyRef Name="Declarant" />
+            <PropertyRef Name="Plomb" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Nature" />
+          </Key>
+          <Property Name="id_Colis" Type="int" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaque" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Importateur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manifeste" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Declarant" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plomb" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="Nature" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.View_Effet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Effet">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Retrait" />
+            <PropertyRef Name="Colis" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Nature" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Declarant" />
+            <PropertyRef Name="Plaque_Sortie" />
+            <PropertyRef Name="Nom_Chauffeur" />
+            <PropertyRef Name="Num_Chauffeur" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Retrait" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Colis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaque" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nature" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="Declarant" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaque_Sortie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nom_Chauffeur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Num_Chauffeur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="25" />
+          <Property Name="CodeQR" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.View_FicheMagasin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_FicheMagasin">
+          <Key>
+            <PropertyRef Name="Colis" />
+            <PropertyRef Name="Dechargement" />
+          </Key>
+          <Property Name="Colis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nature" Type="varchar" MaxLength="50" />
+          <Property Name="Chargement" Type="varchar" MaxLength="10" />
+          <Property Name="Dechargement" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Plaque" Type="varchar" MaxLength="50" />
+          <Property Name="Importateur" Type="varchar" MaxLength="50" />
+          <Property Name="Declarant" Type="varchar" MaxLength="50" />
+          <Property Name="Quantite" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.View_mouv_Aujourdhui' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="View_mouv_Aujourdhui">
+          <Property Name="Date" Type="varchar" MaxLength="25" />
+          <Property Name="Entree" Type="int" />
+          <Property Name="Sortie" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.View_Mouvement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Mouvement">
+          <Key>
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Colis" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Declarant" />
+            <PropertyRef Name="Importateur" />
+          </Key>
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="25" />
+          <Property Name="Colis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaque" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Declarant" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Importateur" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.View_Retrait' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Retrait">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Nature" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Nom" />
+            <PropertyRef Name="Sortie" />
+            <PropertyRef Name="Nom_Chauffeur" />
+            <PropertyRef Name="Num_Chauffeur" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaque" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nature" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sortie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nom_Chauffeur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Num_Chauffeur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.View_Statistique' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="View_Statistique">
+          <Property Name="Date_Entree" Type="varchar" MaxLength="25" />
+          <Property Name="Entree" Type="int" />
+          <Property Name="Sortie" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\JEAN MARIE\DOCUMENTS\GESTIONENTREPOT.MDF.dbo.View_Stock_Restant' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Stock_Restant">
+          <Key>
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Nature" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Importateur" />
+            <PropertyRef Name="Reste" />
+          </Key>
+          <Property Name="Plaque" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nature" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="Importateur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Reste" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MDLStoreContainer">
+          <EntitySet Name="ListColis" EntityType="Self.ListColis" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ListColis].[id_Colis] AS [id_Colis], 
+    [ListColis].[Designation] AS [Designation], 
+    [ListColis].[Plaque] AS [Plaque], 
+    [ListColis].[Importateur] AS [Importateur], 
+    [ListColis].[Manifeste] AS [Manifeste], 
+    [ListColis].[Declarant] AS [Declarant], 
+    [ListColis].[Plomb] AS [Plomb], 
+    [ListColis].[Quantite] AS [Quantite], 
+    [ListColis].[Nature] AS [Nature], 
+    [ListColis].[Date] AS [Date]
+    FROM [dbo].[ListColis] AS [ListColis]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Colis" EntityType="Self.View_Colis" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Colis].[id_Colis] AS [id_Colis], 
+    [View_Colis].[Designation] AS [Designation], 
+    [View_Colis].[Plaque] AS [Plaque], 
+    [View_Colis].[Importateur] AS [Importateur], 
+    [View_Colis].[Manifeste] AS [Manifeste], 
+    [View_Colis].[Declarant] AS [Declarant], 
+    [View_Colis].[Plomb] AS [Plomb], 
+    [View_Colis].[Quantite] AS [Quantite], 
+    [View_Colis].[Nature] AS [Nature], 
+    [View_Colis].[Date] AS [Date]
+    FROM [dbo].[View_Colis] AS [View_Colis]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Effet" EntityType="Self.View_Effet" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Effet].[ID] AS [ID], 
+    [View_Effet].[Retrait] AS [Retrait], 
+    [View_Effet].[Colis] AS [Colis], 
+    [View_Effet].[Plaque] AS [Plaque], 
+    [View_Effet].[Nature] AS [Nature], 
+    [View_Effet].[Quantite] AS [Quantite], 
+    [View_Effet].[Declarant] AS [Declarant], 
+    [View_Effet].[Plaque_Sortie] AS [Plaque_Sortie], 
+    [View_Effet].[Nom_Chauffeur] AS [Nom_Chauffeur], 
+    [View_Effet].[Num_Chauffeur] AS [Num_Chauffeur], 
+    [View_Effet].[Date] AS [Date], 
+    [View_Effet].[CodeQR] AS [CodeQR]
+    FROM [dbo].[View_Effet] AS [View_Effet]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_FicheMagasin" EntityType="Self.View_FicheMagasin" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_FicheMagasin].[Colis] AS [Colis], 
+    [View_FicheMagasin].[Nature] AS [Nature], 
+    [View_FicheMagasin].[Chargement] AS [Chargement], 
+    [View_FicheMagasin].[Dechargement] AS [Dechargement], 
+    [View_FicheMagasin].[Plaque] AS [Plaque], 
+    [View_FicheMagasin].[Importateur] AS [Importateur], 
+    [View_FicheMagasin].[Declarant] AS [Declarant], 
+    [View_FicheMagasin].[Quantite] AS [Quantite]
+    FROM [dbo].[View_FicheMagasin] AS [View_FicheMagasin]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Mouvement" EntityType="Self.View_Mouvement" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Mouvement].[Type] AS [Type], 
+    [View_Mouvement].[Date] AS [Date], 
+    [View_Mouvement].[Colis] AS [Colis], 
+    [View_Mouvement].[Plaque] AS [Plaque], 
+    [View_Mouvement].[Declarant] AS [Declarant], 
+    [View_Mouvement].[Importateur] AS [Importateur]
+    FROM [dbo].[View_Mouvement] AS [View_Mouvement]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Retrait" EntityType="Self.View_Retrait" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Retrait].[ID] AS [ID], 
+    [View_Retrait].[Designation] AS [Designation], 
+    [View_Retrait].[Plaque] AS [Plaque], 
+    [View_Retrait].[Nature] AS [Nature], 
+    [View_Retrait].[Quantite] AS [Quantite], 
+    [View_Retrait].[Nom] AS [Nom], 
+    [View_Retrait].[Sortie] AS [Sortie], 
+    [View_Retrait].[Nom_Chauffeur] AS [Nom_Chauffeur], 
+    [View_Retrait].[Num_Chauffeur] AS [Num_Chauffeur], 
+    [View_Retrait].[Date] AS [Date]
+    FROM [dbo].[View_Retrait] AS [View_Retrait]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Stock_Restant" EntityType="Self.View_Stock_Restant" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Stock_Restant].[Plaque] AS [Plaque], 
+    [View_Stock_Restant].[Designation] AS [Designation], 
+    [View_Stock_Restant].[Nature] AS [Nature], 
+    [View_Stock_Restant].[Quantite] AS [Quantite], 
+    [View_Stock_Restant].[Importateur] AS [Importateur], 
+    [View_Stock_Restant].[Reste] AS [Reste]
+    FROM [dbo].[View_Stock_Restant] AS [View_Stock_Restant]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MDL" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ListColis">
+          <Key>
+            <PropertyRef Name="id_Colis" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Importateur" />
+            <PropertyRef Name="Manifeste" />
+            <PropertyRef Name="Declarant" />
+            <PropertyRef Name="Plomb" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Nature" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="id_Colis" Type="Int32" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Importateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Manifeste" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Declarant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plomb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="View_Colis">
+          <Key>
+            <PropertyRef Name="id_Colis" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Importateur" />
+            <PropertyRef Name="Manifeste" />
+            <PropertyRef Name="Declarant" />
+            <PropertyRef Name="Plomb" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Nature" />
+          </Key>
+          <Property Name="id_Colis" Type="Int32" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Importateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Manifeste" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Declarant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plomb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Effet">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Retrait" />
+            <PropertyRef Name="Colis" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Nature" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Declarant" />
+            <PropertyRef Name="Plaque_Sortie" />
+            <PropertyRef Name="Nom_Chauffeur" />
+            <PropertyRef Name="Num_Chauffeur" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Retrait" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Colis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="Declarant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaque_Sortie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom_Chauffeur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Num_Chauffeur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CodeQR" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="View_FicheMagasin">
+          <Key>
+            <PropertyRef Name="Colis" />
+            <PropertyRef Name="Dechargement" />
+          </Key>
+          <Property Name="Colis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Chargement" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Dechargement" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Importateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Declarant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantite" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_Mouvement">
+          <Key>
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Colis" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Declarant" />
+            <PropertyRef Name="Importateur" />
+          </Key>
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Colis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Declarant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Importateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_Retrait">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Nature" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Nom" />
+            <PropertyRef Name="Sortie" />
+            <PropertyRef Name="Nom_Chauffeur" />
+            <PropertyRef Name="Num_Chauffeur" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sortie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom_Chauffeur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Num_Chauffeur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="View_Stock_Restant">
+          <Key>
+            <PropertyRef Name="Plaque" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Nature" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="Importateur" />
+            <PropertyRef Name="Reste" />
+          </Key>
+          <Property Name="Plaque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="Importateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Reste" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MDLString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ListColis" EntityType="Self.ListColis" />
+          <EntitySet Name="View_Colis" EntityType="Self.View_Colis" />
+          <EntitySet Name="View_Effet" EntityType="Self.View_Effet" />
+          <EntitySet Name="View_FicheMagasin" EntityType="Self.View_FicheMagasin" />
+          <EntitySet Name="View_Mouvement" EntityType="Self.View_Mouvement" />
+          <EntitySet Name="View_Retrait" EntityType="Self.View_Retrait" />
+          <EntitySet Name="View_Stock_Restant" EntityType="Self.View_Stock_Restant" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MDLStoreContainer" CdmEntityContainer="MDLString">
+          <EntitySetMapping Name="ListColis">
+            <EntityTypeMapping TypeName="MDL.ListColis">
+              <MappingFragment StoreEntitySet="ListColis">
+                <ScalarProperty Name="id_Colis" ColumnName="id_Colis" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+                <ScalarProperty Name="Importateur" ColumnName="Importateur" />
+                <ScalarProperty Name="Manifeste" ColumnName="Manifeste" />
+                <ScalarProperty Name="Declarant" ColumnName="Declarant" />
+                <ScalarProperty Name="Plomb" ColumnName="Plomb" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Colis">
+            <EntityTypeMapping TypeName="MDL.View_Colis">
+              <MappingFragment StoreEntitySet="View_Colis">
+                <ScalarProperty Name="id_Colis" ColumnName="id_Colis" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+                <ScalarProperty Name="Importateur" ColumnName="Importateur" />
+                <ScalarProperty Name="Manifeste" ColumnName="Manifeste" />
+                <ScalarProperty Name="Declarant" ColumnName="Declarant" />
+                <ScalarProperty Name="Plomb" ColumnName="Plomb" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Effet">
+            <EntityTypeMapping TypeName="MDL.View_Effet">
+              <MappingFragment StoreEntitySet="View_Effet">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Retrait" ColumnName="Retrait" />
+                <ScalarProperty Name="Colis" ColumnName="Colis" />
+                <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Declarant" ColumnName="Declarant" />
+                <ScalarProperty Name="Plaque_Sortie" ColumnName="Plaque_Sortie" />
+                <ScalarProperty Name="Nom_Chauffeur" ColumnName="Nom_Chauffeur" />
+                <ScalarProperty Name="Num_Chauffeur" ColumnName="Num_Chauffeur" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CodeQR" ColumnName="CodeQR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_FicheMagasin">
+            <EntityTypeMapping TypeName="MDL.View_FicheMagasin">
+              <MappingFragment StoreEntitySet="View_FicheMagasin">
+                <ScalarProperty Name="Colis" ColumnName="Colis" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="Chargement" ColumnName="Chargement" />
+                <ScalarProperty Name="Dechargement" ColumnName="Dechargement" />
+                <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+                <ScalarProperty Name="Importateur" ColumnName="Importateur" />
+                <ScalarProperty Name="Declarant" ColumnName="Declarant" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Mouvement">
+            <EntityTypeMapping TypeName="MDL.View_Mouvement">
+              <MappingFragment StoreEntitySet="View_Mouvement">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Colis" ColumnName="Colis" />
+                <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+                <ScalarProperty Name="Declarant" ColumnName="Declarant" />
+                <ScalarProperty Name="Importateur" ColumnName="Importateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Retrait">
+            <EntityTypeMapping TypeName="MDL.View_Retrait">
+              <MappingFragment StoreEntitySet="View_Retrait">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Sortie" ColumnName="Sortie" />
+                <ScalarProperty Name="Nom_Chauffeur" ColumnName="Nom_Chauffeur" />
+                <ScalarProperty Name="Num_Chauffeur" ColumnName="Num_Chauffeur" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Stock_Restant">
+            <EntityTypeMapping TypeName="MDL.View_Stock_Restant">
+              <MappingFragment StoreEntitySet="View_Stock_Restant">
+                <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Importateur" ColumnName="Importateur" />
+                <ScalarProperty Name="Reste" ColumnName="Reste" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
